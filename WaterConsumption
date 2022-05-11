@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="JASP0018consumptionw" pageWidth="350" pageHeight="842" whenNoDataType="NoPages" columnWidth="200" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" whenResourceMissingType="Error" uuid="49a9b240-0330-41c2-821b-b3ca0324baf0">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="reports\JASP0018\xmlDataAdapter.xml"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["reports/JASP0018/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="BILL_NUMBER" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="fromDate" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="toDate" class="java.lang.String" isForPrompting="false"/>
+	<queryString language="xPath">
+		<![CDATA[/content/letterContents/letterTypeData/INVOICE_DETAIL_DATA/BILL_NOTES_LIST/BILL_NOTE_DATA[billNoteData/billNumber='$P{BILL_NUMBER}']/contractData[RateList/Rate/fromDate='$P{fromDate}' and RateList/Rate/toDate='$P{toDate}']/ConceptsList/concept[codConcept='CONCSMO003']/conceptDetailList/conceptDetail]]>
+	</queryString>
+	<field name="price" class="java.lang.Float">
+		<property name="net.sf.jasperreports.xpath.field.expression" value="price"/>
+		<fieldDescription><![CDATA[price]]></fieldDescription>
+	</field>
+	<field name="amountDetail" class="java.lang.Float">
+		<property name="net.sf.jasperreports.xpath.field.expression" value="amountDetail"/>
+		<fieldDescription><![CDATA[amountDetail]]></fieldDescription>
+	</field>
+	<field name="calculationBase" class="java.lang.Float">
+		<property name="net.sf.jasperreports.xpath.field.expression" value="calculationBase"/>
+		<fieldDescription><![CDATA[amountDetail]]></fieldDescription>
+	</field>
+	<field name="fromRange" class="java.lang.Float">
+		<property name="net.sf.jasperreports.xpath.field.expression" value="fromRange"/>
+		<fieldDescription><![CDATA[fromRange]]></fieldDescription>
+	</field>
+	<field name="endRange" class="java.lang.Float">
+		<property name="net.sf.jasperreports.xpath.field.expression" value="endRange"/>
+		<fieldDescription><![CDATA[endRange]]></fieldDescription>
+	</field>
+	<field name="fromDate" class="java.lang.String">
+		<property name="net.sf.jasperreports.xpath.field.expression" value="contractData/ReadingsList/Reading/fromDate"/>
+		<fieldDescription><![CDATA[contractData/ReadingsList/Reading/fromDate]]></fieldDescription>
+	</field>
+	<field name="toDate" class="java.lang.String">
+		<property name="net.sf.jasperreports.xpath.field.expression" value="contractData/ReadingsList/Reading/toDate"/>
+		<fieldDescription><![CDATA[contractData/ReadingsList/Reading/toDate]]></fieldDescription>
+	</field>
+	<field name="indEstimate" class="java.lang.String">
+		<property name="net.sf.jasperreports.xpath.field.expression" value="contractData/ReadingsList/Reading/indEstimate"/>
+		<fieldDescription><![CDATA[contractData/ReadingsList/Reading/indEstimate]]></fieldDescription>
+	</field>
+	<field name="endReadingValue" class="java.lang.String">
+		<property name="net.sf.jasperreports.xpath.field.expression" value="contractData/ReadingsList/Reading/endReadingValue"/>
+		<fieldDescription><![CDATA[contractData/ReadingsList/Reading/endReadingValue]]></fieldDescription>
+	</field>
+	<field name="initialReadingValue" class="java.lang.String">
+		<property name="net.sf.jasperreports.xpath.field.expression" value="contractData/ReadingsList/Reading/initialReadingValue"/>
+		<fieldDescription><![CDATA[contractData/ReadingsList/Reading/initialReadingValue]]></fieldDescription>
+	</field>
+	<field name="factor" class="java.lang.String">
+		<property name="net.sf.jasperreports.xpath.field.expression" value="contractData/ReadingsList/Reading/factor"/>
+		<fieldDescription><![CDATA[contractData/ReadingsList/Reading/factor]]></fieldDescription>
+	</field>
+	<field name="billingPeriodDays" class="java.lang.String">
+		<property name="net.sf.jasperreports.xpath.field.expression" value="billNoteData/billingPeriodDays"/>
+		<fieldDescription><![CDATA[billNoteData/billingPeriodDays]]></fieldDescription>
+	</field>
+	<field name="result" class="java.lang.Float"/>
+	<variable name="Amount" class="java.lang.Float"/>
+	<variable name="Unit" class="java.lang.String"/>
+	<columnHeader>
+		<band height="16">
+			<staticText>
+				<reportElement mode="Opaque" x="260" y="0" width="90" height="15" isPrintWhenDetailOverflows="true" forecolor="#3AA9E0" backcolor="#E2F2F9" uuid="8a2667c0-cf72-4f09-aa23-4038cc156863"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Water]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="170" y="0" width="90" height="15" isPrintWhenDetailOverflows="true" forecolor="#3AA9E0" backcolor="#E2F2F9" uuid="3f4cfb3e-5648-40e0-8bdb-8e72608b76b0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Consumption]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="70" y="0" width="100" height="15" isPrintWhenDetailOverflows="true" forecolor="#3AA9E0" backcolor="#E2F2F9" uuid="8cc12e62-24ff-44cc-85d2-e69f8b86d81b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rate]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="70" height="15" isPrintWhenDetailOverflows="true" forecolor="#3AA9E0" backcolor="#E2F2F9" uuid="b24570e2-ef50-4eae-a5b1-ee6216e94130"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BD]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="350" height="16" backcolor="#FFFFFF" uuid="72946154-bcc0-4f1c-8d10-9a3ea2ab625a"/>
+				<graphicElement>
+					<pen lineColor="#FFFFFF"/>
+				</graphicElement>
+			</rectangle>
+			<textField isStretchWithOverflow="true" pattern="#,##0.000;(#,##0.000-)" isBlankWhenNull="true">
+				<reportElement x="170" y="1" width="90" height="15" isPrintWhenDetailOverflows="true" uuid="1010a172-6ae6-4eee-a1bc-f4c483e1c4e3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="02df36b4-035c-4474-97ac-1c04c2931c22"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CustomGotham2" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{calculationBase}!=null?$F{calculationBase}:" "]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.000;(#,##0.000-)" isBlankWhenNull="true">
+				<reportElement x="70" y="1" width="100" height="15" isPrintWhenDetailOverflows="true" uuid="db65186f-78be-4410-b8bf-49f42470da8a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CustomGotham2" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{price}!=null?$F{price}:" "]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.000;(#,##0.000-)" isBlankWhenNull="true">
+				<reportElement x="0" y="1" width="68" height="15" isPrintWhenDetailOverflows="true" uuid="1bff6b68-b193-48a7-aa0d-d0cced3a3c01"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CustomGotham2" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{amountDetail}!=null?$F{amountDetail}:" "]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.000;(#,##0.000-)" isBlankWhenNull="true">
+				<reportElement x="260" y="0" width="90" height="16" isPrintWhenDetailOverflows="true" uuid="9440838c-37f8-4b7d-b910-d5f382d807b7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="02df36b4-035c-4474-97ac-1c04c2931c22"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CustomGotham2" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{fromRange}!=null?$F{fromRange}:" " )+" - "+ ($F{endRange}!=null?($F{endRange}>600?"Above":$F{endRange}):" ")]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
