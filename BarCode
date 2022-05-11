@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Barcode1_subreport" pageWidth="300" pageHeight="40" whenNoDataType="AllSectionsNoDetail" columnWidth="300" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="i18n/report" isIgnorePagination="true" uuid="d7d1252e-291d-45cf-b1a4-e9ad96b4964c">
+	<property name="net.sf.jasperreports.awt.ignore.missing.font" value="true"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="reports\JASP0018\xmlDataAdapter.xml"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<template><![CDATA[/* @path="reports/incms_styles.jrtx" */ (FLOOR(4.5 ) == 4.0) ? ($P{SUBREPORT_DIR} + "../incms_styles.jrtx") : ($P{SUBREPORT_DIR} + "../incms_styles.jrtx")]]></template>
+	<style name="listRow" mode="Opaque" backcolor="#FFFFFF">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[Boolean.valueOf($V{REPORT_COUNT}.intValue() %2 == 0)]]></conditionExpression>
+			<style backcolor="#E3E5FA"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["reports/JASP0018/"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="XPath">
+		<![CDATA[/content/letterContents/letterTypeData/INVOICE_DETAIL_DATA/NOTICE_DATA/BAR_CODE_LIST/BAR_CODE]]>
+	</queryString>
+	<field name="AUTOMATIC_DEBIT" class="java.lang.Boolean">
+		<property name="net.sf.jasperreports.xpath.field.expression" value="PAYMENT_DATA/AUTOMATIC_DEBIT/@AUTOMATIC_DEBIT"/>
+		<fieldDescription><![CDATA[PAYMENT_DATA/AUTOMATIC_DEBIT/@AUTOMATIC_DEBIT]]></fieldDescription>
+	</field>
+	<field name="NOTICE_PENDING_AMOUNT" class="java.lang.Double">
+		<property name="net.sf.jasperreports.xpath.field.expression" value="NOTICE_DATA/NOTICE_PENDING_AMOUNT"/>
+		<fieldDescription><![CDATA[NOTICE_DATA/NOTICE_PENDING_AMOUNT]]></fieldDescription>
+	</field>
+	<field name="BAR_CODE_TYPE" class="java.lang.String">
+		<property name="net.sf.jasperreports.xpath.field.expression" value="BAR_CODE_TYPE"/>
+		<fieldDescription><![CDATA[BAR_CODE_TYPE]]></fieldDescription>
+	</field>
+	<field name="BAR_CODE_STRING" class="java.lang.String">
+		<property name="net.sf.jasperreports.xpath.field.expression" value="BAR_CODE_STRING"/>
+		<fieldDescription><![CDATA[BAR_CODE_STRING]]></fieldDescription>
+	</field>
+	<field name="SOURCE_TYPE" class="java.lang.String">
+		<property name="net.sf.jasperreports.xpath.field.expression" value="SOURCE_TYPE"/>
+		<fieldDescription><![CDATA[SOURCE_TYPE]]></fieldDescription>
+	</field>
+	<detail>
+		<band height="40" splitType="Prevent">
+			<componentElement>
+				<reportElement style="Arial_Normal" positionType="Float" x="0" y="0" width="250" height="40" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="349170c1-4083-4394-b1dd-6cd76d947728">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.moduleWidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<jr:Code128 xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" moduleWidth="0.98" textPosition="bottom">
+					<jr:codeExpression><![CDATA[$F{BAR_CODE_STRING}]]></jr:codeExpression>
+				</jr:Code128>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>
