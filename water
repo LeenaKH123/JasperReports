@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="JASP0018water" pageWidth="350" pageHeight="500" whenNoDataType="NoPages" columnWidth="330" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" whenResourceMissingType="Error" uuid="49a9b240-0330-41c2-821b-b3ca0324baf0">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="reports\JASP0018\xmlDataAdapter.xml"/>
+	<subDataset name="Dataset1" uuid="cdc4bb05-eaa2-4939-85f4-d8593578bde2">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+	</subDataset>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["reports/JASP0018/"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="xPath">
+		<![CDATA[/content/letterContents/letterTypeData/INVOICE_DETAIL_DATA/BILL_NOTES_LIST/BILL_NOTE_DATA[contractData/codOfferedService='19' and billNoteData/codBillType='TFGEN00001']]]>
+	</queryString>
+	<field name="idPaymentForm" class="java.lang.String">
+		<property name="net.sf.jasperreports.xpath.field.expression" value="billNoteData/idPaymentForm"/>
+		<fieldDescription><![CDATA[billNoteData/idPaymentForm]]></fieldDescription>
+	</field>
+	<field name="billNumber" class="java.lang.String">
+		<property name="net.sf.jasperreports.xpath.field.expression" value="billNoteData/billNumber"/>
+		<fieldDescription><![CDATA[billNoteData/billNumber]]></fieldDescription>
+	</field>
+	<field name="fromDate" class="java.lang.String">
+		<property name="net.sf.jasperreports.xpath.field.expression" value="contractData/RateList/Rate/fromDate"/>
+		<fieldDescription><![CDATA[contractData/RateList/Rate/fromDate]]></fieldDescription>
+	</field>
+	<field name="rateName" class="java.lang.String">
+		<property name="net.sf.jasperreports.xpath.field.expression" value="contractData/RateList/Rate/rateName"/>
+		<fieldDescription><![CDATA[contractData/RateList/Rate/rateName]]></fieldDescription>
+	</field>
+	<field name="toDate" class="java.lang.String">
+		<property name="net.sf.jasperreports.xpath.field.expression" value="contractData/RateList/Rate/toDate"/>
+		<fieldDescription><![CDATA[contractData/RateList/Rate/toDate]]></fieldDescription>
+	</field>
+	<field name="idCurrency" class="java.lang.String">
+		<property name="net.sf.jasperreports.xpath.field.expression" value="billNoteData/idCurrency"/>
+		<fieldDescription><![CDATA[billNoteData/idCurrency]]></fieldDescription>
+	</field>
+	<field name="ssNiss" class="java.lang.String">
+		<property name="net.sf.jasperreports.xpath.field.expression" value="BILL_NOTES_LIST/BILL_NOTE_DATA/contractData/ssNiss"/>
+		<fieldDescription><![CDATA[BILL_NOTES_LIST/BILL_NOTE_DATA/contractData/ssNiss]]></fieldDescription>
+	</field>
+	<field name="totalAmount" class="java.lang.Float">
+		<property name="net.sf.jasperreports.xpath.field.expression" value="billNoteData/totalAmount"/>
+		<fieldDescription><![CDATA[billNoteData/totalAmount]]></fieldDescription>
+	</field>
+	<field name="usage_" class="java.lang.Float">
+		<property name="net.sf.jasperreports.xpath.field.expression">
+			<![CDATA[sum(/content/letterContents/letterTypeData/INVOICE_DETAIL_DATA/BILL_NOTES_LIST/BILL_NOTE_DATA[contractData/codOfferedService='19' and billNoteData/codBillType='TFGEN00001']/contractData/ReadingsList/Reading[usageCode='TPCONS0001']/usage)]]>
+		</property>
+	</field>
+	<field name="usage" class="java.lang.Float">
+		<property name="net.sf.jasperreports.xpath.field.expression" value="(/contractData/ReadingsList/Reading/usage)"/>
+	</field>
+	<field name="billingPeriodFrom" class="java.lang.String">
+		<property name="net.sf.jasperreports.xpath.field.expression" value="billNoteData/billingPeriodFrom"/>
+		<fieldDescription><![CDATA[billNoteData/billingPeriodFrom]]></fieldDescription>
+	</field>
+	<field name="billingPeriodTo" class="java.lang.String">
+		<property name="net.sf.jasperreports.xpath.field.expression" value="billNoteData/billingPeriodTo"/>
+		<fieldDescription><![CDATA[billNoteData/billingPeriodTo]]></fieldDescription>
+	</field>
+	<field name="billingPeriod" class="java.lang.String">
+		<property name="net.sf.jasperreports.xpath.field.expression" value="billNoteData/billingPeriod"/>
+		<fieldDescription><![CDATA[billNoteData/billingPeriod]]></fieldDescription>
+	</field>
+	<field name="codOfferedService" class="java.lang.Float">
+		<property name="net.sf.jasperreports.xpath.field.expression" value="contractData/codOfferedService"/>
+		<fieldDescription><![CDATA[contractData/codOfferedService]]></fieldDescription>
+	</field>
+	<field name="ElectricitySum" class="java.lang.Float">
+		<property name="net.sf.jasperreports.xpath.field.expression">
+			<![CDATA[sum(/content/letterContents/letterTypeData/INVOICE_DETAIL_DATA/BILL_NOTES_LIST/BILL_NOTE_DATA[contractData/codOfferedService='1']/billNoteData/totalAmount)]]>
+		</property>
+	</field>
+	<field name="waterSum" class="java.lang.Float">
+		<property name="net.sf.jasperreports.xpath.field.expression">
+			<![CDATA[sum(/content/letterContents/letterTypeData/INVOICE_DETAIL_DATA/BILL_NOTES_LIST/BILL_NOTE_DATA[contractData/codOfferedService='19']/billNoteData/totalAmount)]]>
+		</property>
+	</field>
+	<field name="meterNumber" class="java.lang.String">
+		<property name="net.sf.jasperreports.xpath.field.expression" value="contractData/ReadingsList/Reading/meterNumber"/>
+		<fieldDescription><![CDATA[contractData/ReadingsList/Reading/meterNumber]]></fieldDescription>
+	</field>
+	<field name="codBillType" class="java.lang.String">
+		<property name="net.sf.jasperreports.xpath.field.expression" value="billNoteData/codBillType"/>
+	</field>
+	<variable name="Amount" class="java.lang.Float"/>
+	<variable name="Unit" class="java.lang.String"/>
+	<detail>
+		<band height="500">
+			<rectangle>
+				<reportElement x="0" y="0" width="350" height="500" uuid="9f846d7d-8fac-4e8e-a8c5-dbf23656baea"/>
+				<graphicElement>
+					<pen lineColor="#FFFFFF"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle radius="7">
+				<reportElement x="0" y="0" width="350" height="50" backcolor="#F0EFF0" uuid="873e78bb-bcb6-428e-83a4-47f8e305d238"/>
+				<graphicElement>
+					<pen lineColor="#F5F2F2"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="235" y="7" width="74" height="14" forecolor="#666362" uuid="eda4994f-9780-43b0-bb02-3f2ff921f870"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CustomGotham2" isBold="true"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[الماء]]></text>
+			</staticText>
+			<line>
+				<reportElement x="229" y="7" width="1" height="40" forecolor="#AAA7A8" uuid="bc44b5d9-b219-4821-a8dc-98471952b3cb"/>
+			</line>
+			<textField isStretchWithOverflow="true" pattern="#,##0.###;(#,##0.###-)" isBlankWhenNull="true">
+				<reportElement x="72" y="20" width="150" height="14" forecolor="#3AA9E0" uuid="38746fec-5e7d-4638-83ed-cd42ed00b6f6"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="CustomGotham2" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{usage_}!=null?$F{usage_}:" ")+" متر مكعب (m3)"]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="0" y="50" width="350" height="94" isRemoveLineWhenBlank="true" uuid="bed525b8-3ccd-4c3e-b5e0-da5ed050673c"/>
+				<subreportParameter name="BILL_NUMBER">
+					<subreportParameterExpression><![CDATA[$F{billNumber}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="XML_DATA_DOCUMENT">
+					<subreportParameterExpression><![CDATA[$P{XML_DATA_DOCUMENT}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "/Jasp0018_Reading.jasper"]]></subreportExpression>
+			</subreport>
+			<textField isStretchWithOverflow="true" pattern="M/d/yy" isBlankWhenNull="true">
+				<reportElement x="131" y="174" width="68" height="14" forecolor="#3AA9E0" uuid="a976c475-e07f-43fb-bbb8-ab45337bd0f1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CustomGotham2" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fromDate}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="M/d/yy" isBlankWhenNull="true">
+				<reportElement x="11" y="174" width="64" height="14" forecolor="#3AA9E0" uuid="d9f31972-2fb4-4a03-bc54-900164a33dce"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CustomGotham2" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{toDate}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="5" y="170" width="336" height="1" forecolor="#36B3E8" uuid="a93f8dfd-2e7e-4bbc-a9bd-7cb6db212b53"/>
+			</line>
+			<subreport>
+				<reportElement x="0" y="197" width="350" height="64" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="12d7be72-b968-4a74-9701-3cb879888bf3"/>
+				<subreportParameter name="BILL_NUMBER">
+					<subreportParameterExpression><![CDATA[$F{billNumber}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fromDate">
+					<subreportParameterExpression><![CDATA[$F{fromDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="toDate">
+					<subreportParameterExpression><![CDATA[$F{toDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="XML_DATA_DOCUMENT">
+					<subreportParameterExpression><![CDATA[$P{XML_DATA_DOCUMENT}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "/JASP0018consumptionw.jasper"]]></subreportExpression>
+			</subreport>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="260" y="174" width="76" height="14" forecolor="#000000" uuid="555bca0b-e54f-4dc5-85f2-b6334d276c38"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="CustomGotham2" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rateName}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="FillFrame">
+				<reportElement x="314" y="7" width="27" height="25" uuid="3196419d-2e6c-4cd5-a6a9-265afe2f5d8d"/>
+				<imageExpression><![CDATA[$P{SUBREPORT_DIR} + "../images/Icons-04.png"]]></imageExpression>
+			</image>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="235" y="21" width="74" height="14" forecolor="#666362" uuid="c3e9ced6-f6f2-400c-b8f0-d4783731d830"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="CustomGotham2" size="6"/>
+					<paragraph leftIndent="5" rightIndent="0"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ssNiss}.equals(null) ? " ": " رقم الخدمة "+$F{ssNiss}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.000;(#,##0.000-)" isBlankWhenNull="true">
+				<reportElement x="99" y="7" width="123" height="14" forecolor="#3AA9E0" uuid="9625f6df-6f91-4b56-9f9d-136b53a6b0c6"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="CustomGotham2" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalAmount}!=null?$F{totalAmount}:" "]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="5" y="192" width="336" height="1" forecolor="#36B3E8" uuid="cee63a8a-f437-4526-ba2d-0766e2a7755b"/>
+			</line>
+			<rectangle radius="5">
+				<reportElement x="0" y="440" width="350" height="60" backcolor="#F0EFF0" uuid="056851ba-7503-433c-9832-95dae1a0a431"/>
+				<graphicElement>
+					<pen lineColor="#F0EFF0"/>
+				</graphicElement>
+			</rectangle>
+			<subreport>
+				<reportElement x="0" y="454" width="349" height="34" isRemoveLineWhenBlank="true" backcolor="#F0EFF0" uuid="fdf002e7-c89c-4b50-9198-c5b202f37523"/>
+				<subreportParameter name="BILL_NUMBER">
+					<subreportParameterExpression><![CDATA[$F{billNumber}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="XML_DATA_DOCUMENT">
+					<subreportParameterExpression><![CDATA[$P{XML_DATA_DOCUMENT}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "JASP0018_SubtotalW.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="72" y="7" width="21" height="14" forecolor="#3AA9E0" uuid="9b188d93-d84a-4655-9c68-8800ed30a806"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[د.ب]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="0" y="320" width="350" height="64" isRemoveLineWhenBlank="true" uuid="f9bd0b8f-8a5b-4fa4-ba60-eafad89ec916"/>
+				<subreportParameter name="BILL_NUMBER">
+					<subreportParameterExpression><![CDATA[$F{billNumber}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="XML_DATA_DOCUMENT">
+					<subreportParameterExpression><![CDATA[$P{XML_DATA_DOCUMENT}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "JASP0018consumptionOther.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>
