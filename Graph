@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="JASP0018Graph" pageWidth="280" pageHeight="250" whenNoDataType="NoPages" columnWidth="280" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" scriptletClass="com.indracompany.incms.letters.scriptlets.EWALettersScriptlet" whenResourceMissingType="Error" uuid="3f7d3a79-3337-4e94-90d5-17afd6264396">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="reports\JASP0018\xmlDataAdapter.xml"/>
+	<property name="net.sf.jasperreports.awt.ignore.missing.font" value="true"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["reports/JASP0018/"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="xPath">
+		<![CDATA[/content/letterContents/letterTypeData/INVOICE_DETAIL_DATA/GRAPHICS_DATA_WATER/serieDataList/serieData]]>
+	</queryString>
+	<field name="category" class="java.lang.String">
+		<property name="net.sf.jasperreports.xpath.field.expression" value="category"/>
+		<fieldDescription><![CDATA[category]]></fieldDescription>
+	</field>
+	<field name="categoryValue" class="java.lang.String">
+		<property name="net.sf.jasperreports.xpath.field.expression" value="categoryValue"/>
+		<fieldDescription><![CDATA[categoryValue]]></fieldDescription>
+	</field>
+	<summary>
+		<band height="220">
+			<barChart>
+				<chart isShowLegend="false" evaluationTime="Report">
+					<reportElement key="" x="0" y="0" width="220" height="217" isRemoveLineWhenBlank="true" uuid="712f8a73-67ca-4165-9776-6d8d27b01278">
+						<property name="com.jaspersoft.studio.element.name" value="الماء"/>
+					</reportElement>
+					<chartTitle position="Left">
+						<font size="10" isBold="true"/>
+					</chartTitle>
+					<chartSubtitle/>
+					<chartLegend position="Left"/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["Water"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{category}]]></categoryExpression>
+						<valueExpression><![CDATA[new BigDecimal($F{categoryValue}).setScale(0,RoundingMode.DOWN)]]></valueExpression>
+						<labelExpression><![CDATA[$F{categoryValue}]]></labelExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot isShowLabels="true" isShowTickLabels="true" isShowTickMarks="true">
+					<plot labelRotation="60.0">
+						<seriesColor seriesOrder="0" color="#C9E8F3"/>
+					</plot>
+					<itemLabel/>
+					<categoryAxisLabelExpression><![CDATA["(M3) الماء"]]></categoryAxisLabelExpression>
+					<categoryAxisFormat labelRotation="60.0">
+						<axisFormat labelColor="#A2A09F" tickLabelColor="#000000" verticalTickLabels="false" axisLineColor="#000000">
+							<tickLabelFont>
+								<font size="5"/>
+							</tickLabelFont>
+						</axisFormat>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+		</band>
+	</summary>
+</jasperReport>
